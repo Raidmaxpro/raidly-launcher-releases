@@ -1,0 +1,225 @@
+<title>Raidly Launcher — Téléchargement</title>
+<style>
+  @import url('data:text/css,');
+
+  :root {
+    --bg: #07070f;
+    --surface: #0f0f1c;
+    --border: #1e1e35;
+    --accent: #a259ff;
+    --accent2: #7c3aed;
+    --glow: rgba(162,89,255,0.35);
+    --text: #f0f0ff;
+    --text2: #9494b8;
+    --win: #1d9a6c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-x: hidden;
+  }
+
+  /* Ambient glow bg */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(162,89,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 60px rgba(162,89,255,0.08);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(162,89,255,0.12);
+    border: 1px solid rgba(162,89,255,0.3);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .dot {
+    width: 6px; height: 6px;
+    background: var(--win);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--win);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .logo {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #fff 30%, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .tagline {
+    color: var(--text2);
+    font-size: 14px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 24px var(--glow);
+    margin-bottom: 12px;
+  }
+
+  .download-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px var(--glow);
+  }
+
+  .download-btn svg { flex-shrink: 0; }
+
+  .meta {
+    font-size: 11px;
+    color: var(--text2);
+    margin-bottom: 32px;
+  }
+
+  .steps {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+  }
+
+  .steps-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--text2);
+  }
+
+  .step:last-child { margin-bottom: 0; }
+
+  .step-num {
+    width: 20px; height: 20px;
+    background: rgba(162,89,255,0.15);
+    border: 1px solid rgba(162,89,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .footer {
+    margin-top: 32px;
+    font-size: 11px;
+    color: var(--border);
+  }
+</style>
+
+<div class="card">
+  <div class="badge">
+    <span class="dot"></span>
+    Serveur en ligne
+  </div>
+
+  <div class="logo">RAIDLY</div>
+  <p class="tagline">Launcher officiel du serveur FiveM.<br>Inscris-toi et rejoins la communauté.</p>
+
+  <a class="download-btn" href="https://github.com/Raidmaxpro/raidly-launcher-releases/releases/latest/download/Raidly-Launcher-1.0.0.exe" download>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Télécharger le Launcher
+  </a>
+  <p class="meta">Windows 10/11 · Version 1.0.0 · Gratuit</p>
+
+  <div class="steps">
+    <div class="steps-title">Comment démarrer</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <span>Télécharge et lance <strong style="color:var(--text)">Raidly-Launcher-1.0.0.exe</strong></span>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <span>Crée ton compte et attends la validation</span>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <span>Lie ta licence FiveM dans ton profil</span>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <span>Clique sur <strong style="color:var(--text)">Jouer</strong> et rejoins le serveur !</span>
+    </div>
+  </div>
+</div>
+
+<p class="footer">© 2026 Raidly · FiveM Community</p>
